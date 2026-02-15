@@ -1,8 +1,9 @@
 #problem1:
+#BaseClass
 class BankAccount:
     def __init__(self,account_number,balance):
         self.account_number=account_number
-        self.__balance=balance
+        self.__balance=balance # Private variable
     def get_balance(self):
         return self.__balance
     def deposit(self,amount):
@@ -19,6 +20,7 @@ class BankAccount:
         else:
             self.__balance -= amount
             print(f"Withdrawn:{amount}")
+#Derived Classes
 class SavingsAccount(BankAccount):
     def __init__(self,account_number,balance,interest_rate):
         super().__init__(account_number,balance)
@@ -79,16 +81,19 @@ class Manager(Employee):
 employees=[RegularEmployee("Latha",4000),
            ContractEmployee("Cherma",3000,60),
            Manager("Chermalatha",100000)]
+# Polymorphism in action
 for emp in employees:
     print(f"{emp.__class__.__name__}\n  Name:{emp.name}\n Salary:{emp.calculate_salary()}")
 
 # Problem 3
+#Base Class
 class Vehicle:
     def __init__(self,model,rental_rate):
         self.model=model
         self.rental_rate=rental_rate
     def calculate_rental(self,days):
         self.days=days
+#Derived Classes
 class Car(Vehicle):
     def __init__(self, model, rental_rate):
         super().__init__(model, rental_rate)
